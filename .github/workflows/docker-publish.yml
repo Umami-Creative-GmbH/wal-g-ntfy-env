@@ -33,4 +33,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/wal-g-ntfy-env:postgres-1.1,ghcr.io/${{ github.repository_owner }}/wal-g-ntfy-env:latest
+          tags: ghcr.io/umami-creative-gmbH/wal-g-ntfy-env:postgres-1.1,ghcr.io/umami-creative-gmbH/wal-g-ntfy-env:latest
