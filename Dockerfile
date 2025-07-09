@@ -9,6 +9,8 @@ LABEL org.opencontainers.image.licenses="MIT"
 WORKDIR /app
 USER root
 
+RUN apk add --no-cache curl
+
 COPY ./src/docker-entrypoint.sh ./src/do-base-backup.sh ./src/do-wal-push.sh /app/
 RUN chmod +x docker-entrypoint.sh do-base-backup.sh do-wal-push.sh
 RUN chown -R ${WAL_USER}:${WAL_GROUP} /app/
