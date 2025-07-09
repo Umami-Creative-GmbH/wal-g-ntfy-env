@@ -1,3 +1,5 @@
+[![Build Docker Image](https://github.com/Umami-Creative-GmbH/wal-g-ntfy-env/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Umami-Creative-GmbH/wal-g-ntfy-env/actions/workflows/docker-publish.yml)
+
 # WAL-G with NTFY Support and Env Options
 
 A Docker container for [WAL-G](https://github.com/wal-g/wal-g) with [ntfy](https://ntfy.sh/) notification support and flexible configuration via environment variables. Based on [apecloud/wal-g](https://github.com/apecloud/wal-g).
