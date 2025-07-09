@@ -1,0 +1,31 @@
+services:
+  wal-g:
+    image: ghcr.io/umami-creative/wal-g-ntfy-env:postgres-1.1
+    depends_on:
+      - postgres
+    user: "70:70"
+    env_file:
+      - .env.template
+    volumes:
+      - wal-archive:/wal-archive
+      - pgdata:/var/lib/postgresql/data
+
+  postgres:
+    image: postgres:15
+    env_file:
+      - .env.template
+    volumes:
+      - wal-archive:/wal-archive
+      - pgdata:/var/lib/postgresql/data
+    command:
+      - postgres
+      - -c
+      - archive_mode=on
+      - -c
+      - wal_level=replica
+      - -c
+      - archive_command=cp %p /wal-archive/%f
+
+volumes:
+  wal-archive:
+  pgdata:
