@@ -35,9 +35,9 @@ To automate backups, set up a cronjob on your host system. Example entries:
 
 ```cron
 # Basebackups (daily at 2:00 AM)
-0 2 * * * docker compose exec -T wal-g do-backup.sh
+0 2 * * * docker compose exec -T wal-g do-base-backup.sh
 # WAL Files Push (every 15 minutes)
-*/15 * * * * docker compose exec -T wal-g push-wal-queue.sh
+*/15 * * * * docker compose exec -T wal-g do-wal-push.sh
 ```
 
 ## Environment Variables

@@ -19,7 +19,6 @@ ARG WAL_USER=1000
 ARG WAL_GROUP=1000
 USER ${WAL_USER}:${WAL_GROUP}
 
-
 ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
 
 CMD ["sleep", "infinity"]
