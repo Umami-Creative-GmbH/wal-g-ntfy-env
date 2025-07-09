@@ -20,18 +20,24 @@ ntfy_notify() {
   local MESSAGE="$2"
   local TAGS="$3"
 
-  AUTH_ARGS=""
   if [ -n "$NTFY_AUTH_TOKEN" ]; then
-    AUTH_ARGS="-H Authorization: Bearer $NTFY_AUTH_TOKEN"
+    curl -s -X POST "$NTFY_TOPIC" \
+      -H "Authorization: Bearer $NTFY_AUTH_TOKEN" \
+      -H "Title: $TITLE" \
+      -H "Tags: $TAGS" \
+      -d "$MESSAGE"
   elif [ -n "$NTFY_USER" ] && [ -n "$NTFY_PASS" ]; then
-    AUTH_ARGS="--user $NTFY_USER:$NTFY_PASS"
+    curl -s -X POST "$NTFY_TOPIC" \
+      --user "$NTFY_USER:$NTFY_PASS" \
+      -H "Title: $TITLE" \
+      -H "Tags: $TAGS" \
+      -d "$MESSAGE"
+  else
+    curl -s -X POST "$NTFY_TOPIC" \
+      -H "Title: $TITLE" \
+      -H "Tags: $TAGS" \
+      -d "$MESSAGE"
   fi
-
-  curl -s -X POST "$NTFY_TOPIC" \
-    $AUTH_ARGS \
-    -H "Title: $TITLE" \
-    -H "Tags: $TAGS" \
-    -d "$MESSAGE"
 }
 
 # === Error handler ===
