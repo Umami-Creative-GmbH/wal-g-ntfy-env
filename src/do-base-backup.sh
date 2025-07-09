@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # === CONFIGURATION ===
-LOG_DIR="$HOME/logs"
+LOG_DIR="/tmp/wal-logs"
 LOG_FILE="$LOG_DIR/walg-backup.log"
 ROTATE_TIMESTAMP=$(date +%F_%H-%M-%S)
 
