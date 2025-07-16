@@ -11,7 +11,7 @@ USER root
 
 RUN apk add --no-cache curl
 
-COPY ./src/docker-entrypoint.sh ./src/do-base-backup.sh ./src/do-wal-push.sh /app/
+COPY ./src/docker-entrypoint.sh ./src/do-base-backup.sh ./src/do-wal-push.sh ./src/do-push-test.sh /app/
 RUN chmod +x docker-entrypoint.sh do-base-backup.sh do-wal-push.sh do-push-test.sh
 RUN chown -R ${WAL_USER}:${WAL_GROUP} /app/
 RUN ln -s /app/do-base-backup.sh /usr/local/bin/do-base-backup.sh
