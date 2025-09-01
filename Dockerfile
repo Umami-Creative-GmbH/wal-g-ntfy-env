@@ -1,4 +1,4 @@
-FROM apecloud/wal-g:postgres-1.1
+FROM apecloud/wal-g:postgres-1.2
 
 LABEL maintainer="Umami Creative GmbH <hello@umami-creative.de>"
 LABEL org.opencontainers.image.title="wal-g-ntfy-env"
